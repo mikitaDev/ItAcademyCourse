@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <limits>
-
+#include <vector>
 
 #define SIZE(a)             std::cout << typeid(a).name() \
                             << sizeof(a) << std::endl;
@@ -13,15 +13,10 @@
 #define MAXVAL(type)        std::cout << std::numeric_limits<type>::max();
 
 void fill(std::string& a);
+void show_dif();
+void output(const std::string& s);
 
-
-void output(const std::string& s) {
-	std::cout << "SIZE:"<<sizeof(s)<<"\n" << s << std::endl;
-	char a = s[0];
-	std::cout << a;
-
-}
-
+/////////////////////////////////////////////////////////
 
 int main()
 {
@@ -34,14 +29,23 @@ int main()
 	const int A = 10;
 
 	std::string s = "";
+	
+	std::vector<std::string> v;
+	v.push_back("world");
 
-	while (1)
-	{
-		std::cin >> s;
-		output(s);
-	}
+	show_dif();
 }
 
+/////////////////////////////////////////////////////////////////
+
+
+void show_dif()
+{
+	int x = 10;
+	std::cout << "POSTFIX 10++ = " << x++ << std::endl;
+	x = 10;
+	std::cout << "PREFIX ++10 =  " << ++x << std::endl;
+}
 
 
 void fill(std::string& a) {
@@ -54,6 +58,13 @@ void fill(std::string& a) {
 	std::cin >> a;
 }
 
+
+void output(const std::string& s)
+{
+	std::cout << "SIZE:" << sizeof(s) << "\n" << s << std::endl;
+	char a = s[0];
+	std::cout << a;
+}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
